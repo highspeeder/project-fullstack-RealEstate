@@ -10,7 +10,7 @@ spring:
       on-profile: dev
   datasource:
     url: jdbc:mysql://localhost:3306/dev_realestate
-    username: root
+    username: ${local_db_id}
     password: ${local_db_password}
   jpa:
     show-sql: true
