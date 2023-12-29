@@ -28,7 +28,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/realestate
     username: root
-    password: ${server_dashboard_db_password}
+    password: ${server_realestate_db_password}
   jpa:
     show-sql: true
     hibernate:
