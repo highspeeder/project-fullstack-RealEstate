@@ -3,6 +3,7 @@ package com.fullstack.realestate.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.fullstack.realestate.dto.UserDto;
 import com.fullstack.realestate.entity.User;
 import com.fullstack.realestate.repository.UserRepository;
@@ -22,11 +23,14 @@ public class UserService {
 		String encPassword = encoder.encode(rawPassword);
 
 		User newUser = User.builder()
-				.name(userDto.getName())
+				.name(userDto.getUsername())
 				.email(userDto.getEmail())
 				.password(encPassword)
 				.build();
 
-		userRepository.save(newUser);
+		if (newUser != null) {
+			userRepository.save(newUser);
+		}
+	
 	}
 }

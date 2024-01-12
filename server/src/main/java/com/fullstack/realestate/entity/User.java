@@ -1,6 +1,7 @@
 package com.fullstack.realestate.entity;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;

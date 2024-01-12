@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fullstack.realestate.dto.UserDto;
+import com.fullstack.realestate.dto.UserResponse;
 import com.fullstack.realestate.service.UserService;
 
 
@@ -19,9 +20,11 @@ public class AuthController {
 	private UserService userService;
 
 	@PostMapping(value = "/signup")
-	public ResponseEntity<String> singUp(@RequestBody UserDto userDto) {
+	public ResponseEntity<UserResponse> singUp(@RequestBody UserDto userDto) {
 		userService.signUp(userDto);
 
-		return new ResponseEntity<>("User create successfully!", HttpStatus.OK);
+		UserResponse response = new UserResponse("User created successfully!");
+
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 }
